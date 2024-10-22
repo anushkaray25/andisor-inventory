@@ -12,7 +12,6 @@ export default function InventoryPage() {
   const [products, setProducts] = useState([]);
   const [expandedProduct, setExpandedProduct] = useState(null);
   const [expandedVariant, setExpandedVariant] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("products");
@@ -41,7 +40,6 @@ export default function InventoryPage() {
 
     setProducts(productsWithIds);
     sessionStorage.setItem("products", JSON.stringify(productsWithIds));
-    setLoading(false);
   };
 
   const handleExpandProduct = (productId) => {
@@ -83,7 +81,7 @@ export default function InventoryPage() {
     <div className="inventory-page">
       <Header />
       <SearchBar />
-      {loading ? (
+      {products.length === 0 ? (
         <div className="loader-container">
           <ClipLoader color={"#0062cc"} loading={loading} size={50} />
         </div>
