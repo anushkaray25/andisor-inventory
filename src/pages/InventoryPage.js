@@ -83,7 +83,7 @@ export default function InventoryPage() {
       <SearchBar />
       {products.length === 0 ? (
         <div className="loader-container">
-          <ClipLoader color={"#0062cc"} loading={loading} size={50} />
+          <ClipLoader color={"#0062cc"} loading={true} size={50} />
         </div>
       ) : (
         <table className="inventory-table">
