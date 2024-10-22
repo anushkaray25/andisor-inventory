@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ClipLoader } from "react-spinners";
+
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import ProductRow from "../components/ProductRow";
+
 import "../styles/InventoryPage.css";
 
 export default function InventoryPage() {
   const [products, setProducts] = useState([]);
   const [expandedProduct, setExpandedProduct] = useState(null);
   const [expandedVariant, setExpandedVariant] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("products");
@@ -37,6 +41,7 @@ export default function InventoryPage() {
 
     setProducts(productsWithIds);
     sessionStorage.setItem("products", JSON.stringify(productsWithIds));
+    setLoading(false);
   };
 
   const handleExpandProduct = (productId) => {
@@ -78,34 +83,40 @@ export default function InventoryPage() {
     <div className="inventory-page">
       <Header />
       <SearchBar />
-      <table className="inventory-table">
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Stock</th>
-            <th>WHS</th>
-            <th>Discount</th>
-            <th>Colour</th>
-            <th>Sizes</th>
-            <th>Inventory</th>
-            <th>Lead Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product, productIndex) => (
-            <ProductRow
-              key={product.id}
-              product={product}
-              productIndex={productIndex}
-              expandedProduct={expandedProduct}
-              expandedVariant={expandedVariant}
-              handleExpandProduct={handleExpandProduct}
-              handleExpandVariant={handleExpandVariant}
-              handleInputChange={handleInputChange}
-            />
-          ))}
-        </tbody>
-      </table>
+      {loading ? (
+        <div className="loader-container">
+          <ClipLoader color={"#0062cc"} loading={loading} size={50} />
+        </div>
+      ) : (
+        <table className="inventory-table">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Stock</th>
+              <th>WHS</th>
+              <th>Discount</th>
+              <th>Colour</th>
+              <th>Sizes</th>
+              <th>Inventory</th>
+              <th>Lead Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product, productIndex) => (
+              <ProductRow
+                key={product.id}
+                product={product}
+                productIndex={productIndex}
+                expandedProduct={expandedProduct}
+                expandedVariant={expandedVariant}
+                handleExpandProduct={handleExpandProduct}
+                handleExpandVariant={handleExpandVariant}
+                handleInputChange={handleInputChange}
+              />
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
