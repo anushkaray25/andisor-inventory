@@ -1,0 +1,19 @@
+.primary-variant-row {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.input-container {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  width: 40%;
+}
+
+.active-label {
+  background-color: #5bb570;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  margin-left: 10px;
+}

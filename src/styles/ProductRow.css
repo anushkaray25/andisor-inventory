@@ -1,0 +1,31 @@
+.main-product-row {
+  cursor: pointer;
+}
+
+.input-container {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  width: 100px;
+}
+
+.color-indicator {
+  display: flex;
+  gap: 10px;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.circle.blue {
+  background-color: #24c6ff;
+}
+.circle.yellow {
+  background-color: rgb(215 215 77);
+}
+.circle.red {
+  background-color: red;
+}

@@ -1,0 +1,61 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  font-size: 32px;
+  font-weight: normal;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-item:hover {
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #3b3c8d;
+}
+.import-export {
+  display: flex;
+  gap: 10px;
+}
+
+.import-button,
+.export-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

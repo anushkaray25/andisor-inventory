@@ -1,0 +1,65 @@
+.inventory-page {
+  padding: 20px;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.inventory-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.inventory-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-product-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-product-button:hover {
+  background-color: #218838;
+}
+
+@media screen and (max-width: 768px) {
+  .inventory-page {
+    padding: 10px;
+  }
+
+  .inventory-table th,
+  .inventory-table td {
+    padding: 8px;
+  }
+
+  input {
+    padding: 6px;
+  }
+
+  .add-product-button {
+    padding: 8px 16px;
+  }
+}
